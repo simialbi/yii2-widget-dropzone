@@ -1,19 +1,30 @@
 <?php
 
-namespace devgroup\dropzone;
+namespace simialbi\yii2\dropzone;
 
 use yii\web\AssetBundle;
 
 class DropZoneAsset extends AssetBundle
 {
+    /**
+     * @inheritdoc
+     */
     public $sourcePath = '@bower/dropzone/dist';
+    /**
+     * @inheritdoc
+     */
     public $css = [
         'min/dropzone.min.css',
     ];
+    /**
+     * @inheritdoc
+     */
     public $depends = [
-        'yii\web\JqueryAsset',
-        'yii\jui\JuiAsset',
+        'yii\web\JqueryAsset'
     ];
+    /**
+     * @inheritdoc
+     */
     public $js = [
         'min/dropzone.min.js',
     ];

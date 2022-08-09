@@ -1,8 +1,12 @@
 {
-    "name": "devgroup/yii2-dropzone",
+    "name": "simialbi/yii2-widget-dropzone",
     "description": "Yii2 Dropzone widget",
     "type": "yii2-extension",
-    "keywords": ["yii2", "dropzone", "upload"],
+    "keywords": [
+        "yii2",
+        "dropzone",
+        "upload"
+    ],
     "license": "GPL-3.0+",
     "authors": [
         {
@@ -16,20 +20,36 @@
         {
             "name": "Pavel Fedotov",
             "email": "fps.06@mail.ru"
+        },
+        {
+            "name": "Simon Karlen",
+            "email": "simi.albi@outlook.com",
+            "homepage": "https://github.com/simialbi"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "yiisoft/yii2": "2.0.*",
-        "yiisoft/yii2-jui": "2.0.*",
-        "bower-asset/dropzone": "~4.0"
+        "php": ">=7.4",
+        "yiisoft/yii2": "^2.0.0",
+        "bower-asset/dropzone": "^5.0.0"
     },
     "require-dev": {
+        "yiisoft/yii2-coding-standards": "^2.0.0",
         "yiisoft/yii2-debug": "2.0.*"
     },
     "autoload": {
         "psr-4": {
-            "devgroup\\dropzone\\": ""
+            "simialbi\\yii2\\dropzone\\": "src"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
         }
     }
 }

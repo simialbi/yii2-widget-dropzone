@@ -3,6 +3,7 @@ Dropzone Extension for Yii 2
 
 This extension provides the [Dropzone](http://www.dropzonejs.com/) integration for the Yii2 framework.
 
+> This fork is based on @DevGroup-ru's extension [yii2-dropzone](https://github.com/DevGroup-ru/yii2-dropzone).
 
 Installation
 ------------
@@ -14,13 +15,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist devgroup/yii2-dropzone "*"
+php composer.phar require --prefer-dist simialbi/yii2-widget-dropzone "*"
 ```
 
 or add
 
 ```
-"devgroup/yii2-dropzone": "*"
+"simialbi/yii2-widget-dropzone": "*"
 ```
 
 to the require section of your composer.json.
@@ -30,20 +31,18 @@ General Usage
 -------------
 
 ```php
-use devgroup\dropzone\DropZone;
+use simialbi\yii2\dropzone\DropZone;
 
 DropZone::widget(
     [
         'name' => 'file', // input name or 'model' and 'attribute'
         'url' => '', // upload url
         'storedFiles' => [], // stores files
-        'eventHandlers' => [], // dropzone event handlers
-        'sortable' => true, // sortable flag
-        'sortableOptions' => [], // sortable options
-        'htmlOptions' => [], // container html options
-        'options' => [], // dropzone js options
+        'clientOptions' => [], // dropzone js options
+        'clientEvents' => [], // dropzone event handlers
+        'options' => [] // container html options
     ]
 )
 ```
 
-you can also register `devgroup\dropzone\UploadAction` and `devgroup\dropzone\RemoveAction` actions in your controller
+you can also register `simialbi\yii2\dropzone\UploadAction` and `simialbi\yii2\dropzone\RemoveAction` actions in your controller
