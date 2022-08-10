@@ -31,12 +31,18 @@
     "require": {
         "php": ">=7.4",
         "yiisoft/yii2": "^2.0.0",
-        "bower-asset/dropzone": "^5.0.0"
+        "enyo/dropzone": "^5.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-coding-standards": "^2.0.0",
         "yiisoft/yii2-debug": "2.0.*"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "simialbi\\yii2\\dropzone\\": "src"

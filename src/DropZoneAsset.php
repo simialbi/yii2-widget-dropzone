@@ -9,7 +9,7 @@ class DropZoneAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@bower/dropzone/dist';
+    public $sourcePath = '@vendor/enyo/dropzone/dist';
     /**
      * @inheritdoc
      */
