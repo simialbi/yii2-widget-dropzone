@@ -4,6 +4,7 @@ namespace simialbi\yii2\dropzone;
 
 use Yii;
 use yii\base\Action;
+use yii\base\Exception;
 use yii\helpers\FileHelper;
 use yii\web\HttpException;
 use yii\web\UploadedFile;
@@ -69,7 +70,7 @@ class UploadAction extends Action
      *
      * @return string
      *
-     * @throws HttpException
+     * @throws HttpException|Exception
      */
     public function run(): string
     {
@@ -77,6 +78,8 @@ class UploadAction extends Action
         if ($file->hasError) {
             throw new HttpException(500, 'Upload error');
         }
+
+        FileHelper::createDirectory($this->uploadDir);
 
         $fileName = $file->name;
         if (file_exists($this->uploadDir . $fileName)) {

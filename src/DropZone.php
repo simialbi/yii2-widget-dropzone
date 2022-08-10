@@ -102,7 +102,7 @@ class DropZone extends InputWidget
             $js = <<<JS
 var files = $files;
 for (var i = 0; i < files.length; i++) {
-    jQuery('#{$this->options['id']}').dropzone.displayExistingFile([{name: files[i].name, size: files[i].size}], files[i].url);
+    jQuery('#{$this->options['id']}')[0].dropzone.displayExistingFile([{name: files[i].name, size: files[i].size}], files[i].url);
 }
 JS;
             $this->view->registerJs($js);
@@ -117,6 +117,8 @@ JS;
     protected function registerPlugin(): void
     {
         $view = $this->getView();
+
+        $view->registerJs('Dropzone.autoDiscover = false;', $view::POS_END, 'dropzone-auto-discover');
 
         if (empty($this->name) && (!empty($this->model) && !empty($this->attribute))) {
             $this->name = Html::getInputName($this->model, $this->attribute);
@@ -149,7 +151,7 @@ JS;
             $id = $this->options['id'];
             $js = [];
             foreach ($this->clientEvents as $event => $handler) {
-                $js[] = "jQuery('#$id').on('$event', $handler);";
+                $js[] = "jQuery('#$id')[0].dropzone.on('$event', $handler);";
             }
             $this->getView()->registerJs(implode("\n", $js));
         }
